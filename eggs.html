@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egg Timer</title>
+    <link rel="stylesheet" id="dynamic-css" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let link = document.getElementById("dynamic-css");
+            link.href = "styles.css?v=" + new Date().getTime();
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="eggs.html">🥚 Soft-Boiled Timer</a></li>
+        </ul>
+    </nav>
+    <h1>Egg Timer</h1>
+    <button onclick="startTimer(3)">Soft Egg (3 min)</button>
+    <button onclick="startTimer(5)">Medium Egg (5 min)</button>
+    <button onclick="startTimer(8)">Hard Egg (8 min)</button>
+    <p id="timer"></p>
+    <script src="script.js"></script>
+</body>
+</html>

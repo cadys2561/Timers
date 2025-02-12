@@ -3,16 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egg Timer</title>
-    <link rel="stylesheet" href="style.css">
+    <title>For My Love ❤️</title>
+    <link rel="stylesheet" id="dynamic-css" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let link = document.getElementById("dynamic-css");
+            link.href = "styles.css?v=" + new Date().getTime();
+        });
+    </script>
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <h1>Egg Timer</h1>
-    <button onclick="startTimer(3)">Soft Egg (3 min)</button>
-    <button onclick="startTimer(5)">Medium Egg (5 min)</button>
-    <button onclick="startTimer(8)">Hard Egg (8 min)</button>
-    <p id="timer"></p>
     <script src="script.js"></script>
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Úvodní zamilovaná stránka</a></li>
+            <li><a href="eggs.html">🥚 Jak dlouho vařit vajíčka?</a></li>
+            <li><a href="pasta.html">🥚 Jak dlouho vařit těstoviny?</a></li>
+            <li><a href="rice.html">🥚 Jak dlouho vařit rýži?</a></li>
+            <li><a href="potatos.html">🥚 Jak dlouho vařit brambory?</a></li>
+            <li style="padding: 1cm;"><a href="parek.html">🥚 Jak dlouho vařit párek?</a></li>
+            <li><a href="readME.html">🥚 Něco o programu</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>❤️ Pro moji nejmilejší a nejúžasnější Sabulilinku ❤️</h1>
+
+        <div id="greeting"></div>
+
+        <div class="message">
+            <h2>Jak dlouho už spolu chodíme?</h2>
+            <p>Už spolu chodíme <span id="days-count"></span> dnííí! 💕</p>
+        </div>
+
+        <div class="custom-message">
+            <h2>Message for You</h2>
+            <p id="special-message">You are the best! 😘</p>
+        </div>
+    </div>
+
+    
 </body>
 </html>
