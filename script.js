@@ -5,18 +5,21 @@ if ("serviceWorker" in navigator) {
 
 let timerInterval;
 
-function startTimer(minutes) {
+function startTimer(minutes, product) {
+    let done_sound = new Audio("sound_effects/ring.mp3");
     let timeLeft = minutes * 60;
+    let mess = ["Vajíčko je hotové!", "Párek je hotový!", "Těstoviny jsou hotové!", "Brambory jsou hotové!", "Rýže je uvařena!"]
     clearInterval(timerInterval);
     
     timerInterval = setInterval(() => {
         let min = Math.floor(timeLeft / 60);
         let sec = timeLeft % 60;
-        document.getElementById("timer").textContent = `Time left: ${min}:${sec < 10 ? "0" : ""}${sec}`;
+        document.getElementById("timer").textContent = `Zbývá: ${min}:${sec < 10 ? "0" : ""}${sec}`;
         
         if (timeLeft === 0) {
             clearInterval(timerInterval);
-            document.getElementById("timer").textContent = "Egg is ready!";
+            done_sound.play();
+            document.getElementById("timer").textContent = mess[product];
         }
         timeLeft--;
     }, 1000);
@@ -42,26 +45,29 @@ document.addEventListener("DOMContentLoaded", function () {
         "Myslím na tebe už od půlnoci 💕",
         "Šíkpová růženka se probudila 🥰",
         "Koukejme kdo se nám uráčil se probudit",
-        "",
+        "Kéž by jsi mohla mít tak úžasný den, jako jsi úžasná ty!",
         "Jen tak mimochodem. Miluji těěěě! 😘"
     ];
 
     const afternoon_greeting = [
-        "Good morning, my love! ❤️",
-        "Hope you have a wonderful day! 😊",
-        "You're the best thing in my life! 💖",
-        "Every day with you is special! 🥰",
-        "Thinking of you always! 💕",
-        "Jen tak mimochodem. Miluji těěěě! 😘"
+        "Snad ses nám kjásně napapala ❤️",
+        "Věřím, že máš úžasný den! 😊",
+        "Odpočiň si po náročném odpoledni 💖",
+        "Jsi moje nejvýjmečnější 🥰",
+        "Doufám, že dnešek je úžasnější než včerejšek 💕",
+        "Jen tak mimochodem. Miluji těěěě! 😘",
+        "Kdyby se něco dělo, víš komu se ozvat 😘",
+        "Sabinka se růmuje se slovem prcinka 🥰"
     ];
 
     const evening_greetings = [
-        "Good morning, my love! ❤️",
-        "Hope you have a wonderful day! 😊",
-        "You're the best thing in my life! 💖",
-        "Every day with you is special! 🥰",
-        "Thinking of you always! 💕",
-        "Jen tak mimochodem. Miluji těěěě! 😘"
+        "Blíží se čas spánku ❤️",
+        "Už jsi vše zvládla, moje šikulko, už jen odpočívej 😊",
+        "Snad jsi měla dokonalý den aspoň z půlky jako jsi ty 💖",
+        "Každý společně strávený den je dokonalý 🥰",
+        "Celý den jsem na tebe myslel, můžu si dát už pauzu? 💕",
+        "Jen tak mimochodem. Miluji těěěě! 😘",
+        "Jsi ještě krásnější než jsi byla ráno, jde to vůbec překonat?"
     ];
 
     // Pick a random greeting
@@ -82,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         heart.className = "heart";
         
         // Position the heart randomly within the viewport
+        heart.style.bottom = 25 +"%";
         heart.style.left = Math.random() * 100 + "vw"; // Random horizontal position
         heart.style.animationDuration = (Math.random() * 6 + 2) + "s"; // Random float duration (5-7 sec)
         
@@ -95,6 +102,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create hearts every 100ms
     setInterval(createHeart, 100);
+
+
+
+
+    const bigHeart = document.getElementById("big-heart");
+
+    function createFloatingHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("small-heart", "floating-heart"); // Add animation class
+    
+        // Random position near the big heart
+        heart.style.left = (bigHeart.offsetLeft + Math.random() * 50 - 15) + "px";
+        heart.style.top = (bigHeart.offsetTop + Math.random() * 50 - 70) + "px";
+    
+        document.body.appendChild(heart);
+    
+        // Remove heart after animation ends
+        setTimeout(() => heart.remove(), 5000);
+    }
+    
+    const pop = new Audio("sound_effects/pop_1.mp3");
+
+    // Click event for the big heart
+    bigHeart.addEventListener("click", function () {
+        pop.play();
+        for (let i = 0; i < 2; i++) { // Create 5 floating hearts per click
+            createFloatingHeart();
+        }
+    });
+    
 
     
 });

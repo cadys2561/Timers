@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Něco o programu a základní info</title>
+    <link rel="stylesheet" id="dynamic-css" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let link = document.getElementById("dynamic-css");
+            link.href = "styles.css?v=" + new Date().getTime();
+        });
+    </script>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    
+            // Function to create a heart at random positions
+            function createHeart() {
+                const heart = document.createElement("div");
+                heart.className = "heart";
+                
+                // Position the heart randomly within the viewport
+                heart.style.bottom = 25 +"%";
+                heart.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+                heart.style.animationDuration = (Math.random() * 6 + 2) + "s"; // Random float duration (5-7 sec)
+                
+                document.body.appendChild(heart);
+    
+                // Remove the heart after the animation completes
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000); // Remove after 5 seconds
+            }
+    
+            // Create hearts every 100ms
+            setInterval(createHeart, 100);
+        });
+        </script>
+</head>
+<body>
+    <script src="script.js"></script>
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Úvodní zamilovaná stránka</a></li>
+            <li><a href="eggs.html">🥚 Jak dlouho vařit vajíčka?</a></li>
+            <li><a href="pasta.html">🍝 Jak dlouho vařit těstoviny?</a></li>
+            <li><a href="rice.html">🍚 Jak dlouho vařit rýži?</a></li>
+            <li><a href="potatos.html">🥔 Jak dlouho vařit brambory?</a></li>
+            <li style="padding: 1cm;"><a href="parek.html">🫘 Jak dlouho vařit párek?</a></li>
+            <li><a href="game.html"> Kolik 🍄 chytneš?</a></li>
+            <li><a href="readME.html">❓ Něco o programu</a></li>
+        </ul>
+    </nav>
+    <div class="message">
+        <h2>Dúležité informace: </h2>
+        Tento program je převážně důkazem k tomu, jak moc tě mám rád Sabinko a že jsem kvůli tomu i ochutný trpět JavaSript, HTML a CSS. V normální řeči to znamená,
+        že kvůli tobě budu klidně bojovat i s psaním webů. Moje prvotní myšlenka byla udělat čistě jeden časovač, potom mě napadlo udělat více časovačů, a pak
+        mě vlastně došlo, že je to dárek k valentýnu a asi by bylo hezčí něco romantičtějšího. No tak jsem psal a něco vymýšlel a ono to nějak vycházelo, nevycházelo
+        a furt je co zlepšovat. Taky to původně mělo být na telefon, ale zjistil jsem později, že tam nefungují určité věci, a nevím teď jak to vyřešit.
+        Proto to zatím dočasně bude jen webová stránka, která není moc optimalizovaná na telefon a snaží se aspoň trochu fungovat offline na počítači.
+        Program má velkou budoucnost a mám s ním i spoustu myšlenek co dál, co vylepšit atd. Ale pro zatím jenom takto a další vylepšení a přidané funkce
+        ti oznámím a navedu. <br>
+        Jinak za jakékoliv kulinářské nezdary nenesu žádnou zodpovědnost. <br>
+        Věřím, že se ti program i malé detaily v něm líbí a třeba ho budeš občas používat. Já se pokusím postupem roku ho vylepšit a informovat tě
+        o změnách. <br>
+        Děkuji moc za tvoji trpělivost se mnou a za schovívavost k chybám a překlepům v programu. <br>
+        Moc tě mijujuuuuu
+    </div>
+</body>
+</html>

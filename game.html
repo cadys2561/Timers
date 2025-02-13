@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love ❤️</title>
+    <title>Kolik 🍄 chytneš?</title>
     <link rel="stylesheet" id="dynamic-css" href="styles.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -11,10 +11,9 @@
             link.href = "styles.css?v=" + new Date().getTime();
         });
     </script>
-    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="game.css">
 </head>
 <body>
-    <script src="script.js"></script>
     <nav>
         <ul>
             <li><a href="index.html">🏠 Úvodní zamilovaná stránka</a></li>
@@ -27,30 +26,11 @@
             <li><a href="readME.html">❓ Něco o programu</a></li>
         </ul>
     </nav>
-
-    <div class="container">
-        <h1>❤️ Pro moji nejmilejší a nejúžasnější Sabulilinku ❤️</h1>
-
-        <div id="greeting" class="custom-message"></div>
-
-        <div class="message">
-            <h2>Jak dlouho už spolu jsme?</h2>
-            <p>Už spolu chodíme <span id="days-count"></span> dnííí! 💕</p>
-        </div>
-
-        <div class="custom-message">
-            <h2>Přáníčko pro tebe ❤️</h2>
-            <p id="special-message"><h3>Milá sabinko</h3>
-            Tímto dárečkem ti chci připomenout naši nekonečnou lásku. Kdykoliv se sem podíváš, uvidíš kolik dní už spolu
-            oficiálně chodíme. Třeba ti stránka i zlepší náladu a dá větší chuť něco dělat a namotivuje tě. Taky ti pomůže si něco sama 
-            uvařit až budu zase někde na cestách a prostě ti vždy připomene nás dva. <br>
-            Snad se ti líbí ❤️.
-            </p>
-        </div>
-        <div id="big-heart"></div>
-
+    <div id="play-area">
+        <div id="player"></div>
+        <div id="ground"></div>
     </div>
-
-    
+    <div id="score">Score: 0</div>
+    <script src="game.js"></script>
 </body>
 </html>

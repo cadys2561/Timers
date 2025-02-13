@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jak dlouho vařit brambory?</title>
+    <link rel="stylesheet" id="dynamic-css" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let link = document.getElementById("dynamic-css");
+            link.href = "styles.css?v=" + new Date().getTime();
+        });
+    </script>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    
+            // Function to create a heart at random positions
+            function createHeart() {
+                const heart = document.createElement("div");
+                heart.className = "heart";
+                
+                // Position the heart randomly within the viewport
+                heart.style.bottom = 25 +"%";
+                heart.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+                heart.style.animationDuration = (Math.random() * 6 + 2) + "s"; // Random float duration (5-7 sec)
+                
+                document.body.appendChild(heart);
+    
+                // Remove the heart after the animation completes
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000); // Remove after 5 seconds
+            }
+    
+            // Create hearts every 100ms
+            setInterval(createHeart, 100);
+        });
+        </script>
+</head>
+<body>
+    <script src="script.js"></script>
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Úvodní zamilovaná stránka</a></li>
+            <li><a href="eggs.html">🥚 Jak dlouho vařit vajíčka?</a></li>
+            <li><a href="pasta.html">🍝 Jak dlouho vařit těstoviny?</a></li>
+            <li><a href="rice.html">🍚 Jak dlouho vařit rýži?</a></li>
+            <li><a href="potatos.html">🥔 Jak dlouho vařit brambory?</a></li>
+            <li style="padding: 1cm;"><a href="parek.html">🫘 Jak dlouho vařit párek?</a></li>
+            <li><a href="game.html"> Kolik 🍄 chytneš?</a></li>
+            <li><a href="readME.html">❓ Něco o programu</a></li>
+        </ul>
+    </nav>
+
+    <h1>Jak dlouho vařit brambory?</h1>
+    <div class="message">
+        <h2>Doporučení: </h2> Potom, co nakrajíme a oloupeme brambory, zalijeme je vodou a osolíme. Solíme většinou jednou kávovou
+        lžicí soli. Když je brambor více, dáme jeden a kousek, když jich je méně, tak o něco méně než jednu lžíci. Až začne voda vařit, stlumíme
+        plotýnku a zapneme časovač. Brambory udržujeme při varu a hotové brambory by se měli dát přeříznout tupou stranou příborového nože. Poté už jen 
+        brambory scedíme a máme hotovo.
+    </div>
+    <button class="button-1" role="button" onclick="startTimer(25, 3)">Prostě vaření brambor</button>
+
+    <p id="timer"></p>
+</body>
+</html>

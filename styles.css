@@ -37,6 +37,93 @@ body {
 }
 
 
+/* Big heart button (static) */
+#big-heart {
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    width: 100px;
+    height: 90px;
+}
+
+/* Hover effect for the button */
+#big-heart:hover {
+    transform: scale(1.1);
+}
+
+/* Big heart shape */
+#big-heart::before, #big-heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 52px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+    background: red;
+}
+
+#big-heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+#big-heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Floating small hearts */
+.small-heart {
+    position: absolute;
+    width: 20px; /* Adjusted size */
+    height: 18px;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Smaller heart shape */
+.small-heart::before, .small-heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 26px;  /* Half the original size */
+    height: 40px; /* Half the original size */
+    border-radius: 25px 25px 0 0;
+    background: red;
+}
+
+.small-heart::before {
+    left: 25px; /* Adjusted for smaller size */
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.small-heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Small hearts animation */
+.floating-heart {
+    animation: float-heart 5s ease-out forwards;
+}
+
+/* Heart floating keyframes */
+@keyframes float-heart {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+}
+
+
+
+
 nav {
     background-color: #ff4d6d;
     padding: 15px;
@@ -80,4 +167,38 @@ h1 {
 #special-message {
     font-size: 1.2em;
     font-style: italic;
+}
+
+
+/* CSS */
+.button-1 {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
 }
