@@ -17,7 +17,6 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #ffccff; /* Light pink */
-    overflow: hidden; /* Hide extra animations */
     height: 100vh; /* Ensure the body covers the whole screen */
     margin: 0; /* Remove default margins */
 }
