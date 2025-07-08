@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nápady na rande</title>
+  <link rel="stylesheet" id="dynamic-css" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let link = document.getElementById("dynamic-css");
+            link.href = "styles.css?v=" + new Date().getTime();
+        });
+    </script>
+</head>
+<body>
+    <script src="script.js"></script>
+    <nav>
+        <ul>
+            <li><a href="index.html">🏠 Úvodní zamilovaná stránka</a></li>
+            <li><a href="eggs.html">🥚 Jak dlouho vařit vajíčka?</a></li>
+            <li><a href="pasta.html">🍝 Jak dlouho vařit těstoviny?</a></li>
+            <li><a href="rice.html">🍚 Jak dlouho vařit rýži?</a></li>
+            <li><a href="potatos.html">🥔 Jak dlouho vařit brambory?</a></li>
+            <li style="padding: 1cm;"><a href="parek.html">🫘 Jak dlouho vařit párek?</a></li>
+            <li><a href="game.html"> Kolik 🍄 chytneš?</a></li>
+            <li><a href="info.html">❓ Něco o programu</a></li>
+            <li><a href="ideas.html">❓ Nápadíčky</a></li>
+        </ul>
+    </nav>
+    <h1>🎀 Nápady na rande</h1>
+
+    <input type="text" id="new-idea" placeholder="Zadej nový nápad">
+    <button id="add-idea" class="button-1">Přidat nápad</button>
+
+    <ul id="idea-list"></ul>
+
+    <button id="random-idea" class="button-1">🎁 Náhodně vybrat nápad</button>
+    <p id="chosen-idea"></p>
+
+    <script>
+    
+        function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        
+        // Position the heart randomly within the viewport
+        heart.style.bottom = 25 +"%";
+        heart.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+        heart.style.animationDuration = (Math.random() * 6 + 2) + "s"; // Random float duration (5-7 sec)
+        
+        document.body.appendChild(heart);
+
+        // Remove the heart after the animation completes
+        setTimeout(() => {
+            heart.remove();
+        }, 5000); // Remove after 5 seconds
+    }
+
+    // Create hearts every 100ms
+    setInterval(createHeart, 100);
+
+    // Inicializace z LocalStorage
+    let ideas = JSON.parse(localStorage.getItem("ideas")) || [];
+
+    const ideaList = document.getElementById("idea-list");
+    const newIdeaInput = document.getElementById("new-idea");
+    const chosenIdea = document.getElementById("chosen-idea");
+
+    // Funkce pro zobrazení seznamu
+    function renderIdeas() {
+        ideaList.innerHTML = "";
+        ideas.forEach((idea, index) => {
+        const li = document.createElement("li");
+        li.textContent = idea;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+        deleteBtn.onclick = () => {
+            ideas.splice(index, 1);
+            localStorage.setItem("ideas", JSON.stringify(ideas));
+            renderIdeas();
+        };
+
+        li.appendChild(deleteBtn);
+        ideaList.appendChild(li);
+        });
+    }
+
+    // Přidání nápadu
+    document.getElementById("add-idea").addEventListener("click", () => {
+        const text = newIdeaInput.value.trim();
+        if (text) {
+        ideas.push(text);
+        localStorage.setItem("ideas", JSON.stringify(ideas));
+        newIdeaInput.value = "";
+        renderIdeas();
+        }
+    });
+
+    // Náhodný výběr
+    document.getElementById("random-idea").addEventListener("click", () => {
+        if (ideas.length > 0) {
+        const randomIndex = Math.floor(Math.random() * ideas.length);
+        chosenIdea.textContent = "👉 " + ideas[randomIndex];
+        } else {
+        chosenIdea.textContent = "Žádný nápad zatím není.";
+        }
+    });
+
+    // Při načtení zobraz seznam
+    renderIdeas();
+    </script>
+</body>
+</html>
